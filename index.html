@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    html,
+    body {
+      background-color: #1f1f1f;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      border: 3px solid white;
+      border-radius: 15px;
+    }
+
+    .calculator-display {
+      width: 100%;
+      height: 80px;
+      margin: auto;
+      background-color: rgb(245, 245, 245,0.7);
+      position: relative;
+      letter-spacing: 2px;
+    }
+    .calculator-display span {
+      position: absolute;
+      top:0;
+      right:5px;
+      font-size: 24px;
+    }
+    .calculator-display p {
+      font-size: 30px;
+      width: 100%;
+      text-align: end;
+      word-wrap: hidden;
+      font-weight: 900;
+    }
+    
+
+    /* button */
+    button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: auto;
+      font-size: 22px;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      transition: all 0.2s ease-in;
+    }
+
+    .col-6 button {
+      width: 100%;
+      border-radius: 30px 30px 30px;
+    }
+
+    button:focus {
+      outline: 0px;
+    }
+
+    button:hover,button:active,button:focus {
+      background-color: white;
+      color: #1f1f1f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto mt-2 p-3">
+    <h1 class="text-white text-center">CalCulator</h1>
+    <div class="calculator-display my-2 d-flex flex-column justify-content-end align-items-end">
+      <span>132</span>
+      <p class="m-0 p-1"></p>
+    </div>
+    <div class="calculator-button-group pt-2 m-auto">
+      <div class="row justify-content-between">
+        <div class="col-3 my-1">
+          <button data-type="operator">√</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">x²</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">1/x</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">←</button>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-3 my-1">
+          <button data-type="operator">C</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">+/-</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">%</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">÷</button>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-3 my-1">
+          <button data-type="num">7</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">8</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">9</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">x</button>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-3 my-1">
+          <button data-type="num">4</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">5</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">6</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">-</button>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <div class="col-3 my-1">
+          <button data-type="num">1</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">2</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="num">3</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">+</button>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <div class="col-6 my-1">
+          <button data-type="num">0</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">.</button>
+        </div>
+        <div class="col-3 my-1">
+          <button data-type="operator">=</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
